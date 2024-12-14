@@ -87,14 +87,9 @@ def authorized():
         app.logger.warning("Authentication Failed")
         return render_template("auth_error.html", result=request.args)
     if request.args.get('code'):
-        def _load_cache():
-            # TODO: Load the cache from `msal`, if it exists
-            cache = msal.SerializableTokenCache()
-            if session.get('token_cache'):
-                cache.deserialize(session['token_cache'])
-            return cache
+        cache = _load_cache
         # TODO: Acquire a token from a built msal app, along with the appropriate redirect URI
-        result = _build_msal_app(cache=cache).acquire_token_by_authorization_code(
+        result = _build_msal_app(cache= cache).acquire_token_by_authorization_code(
             request.args.get('code'),
             scopes=Config.SCOPE,
             redirect_uri=url_for('authorized', _external=True, _scheme='https'))
@@ -106,11 +101,7 @@ def authorized():
         # Here, we'll use the admin username for anyone who is authenticated by MS
         user = User.query.filter_by(username="admin").first()
         login_user(user)
-        def _save_cache(cache):
-            # TODO: Save the cache, if it has changed
-            app.logger.warning("Successful login attempt")
-            if cache.has_state_changed:
-                session['token_cache'] = cache.serialize()
+        _save_cache(cache)
     return redirect(url_for('home'))
 
 @app.route('/logout')
@@ -128,12 +119,16 @@ def logout():
 
 def _load_cache():
     # TODO: Load the cache from `msal`, if it exists
-    cache = None
+    cache = msal.SerializableTokenCache()
+    if session.get('token_cache'):
+        cache.deserialize(session['token_cache'])
     return cache
+
 
 def _save_cache(cache):
     # TODO: Save the cache, if it has changed
-    pass
+    if cache.has_state_changed:
+        session['token_cache'] = cache.serialize()
 
 def _build_msal_app(cache=None, authority=None):
     # TODO: Return a ConfidentialClientApplication
