@@ -12,10 +12,10 @@ Or, once the MS Login button is implemented, it will automatically log into the 
 ## Azure Settings of this Project
 This page outlines all the settings and steps taken for this project.
 
-1. ### Resource Group
+### 1. Resource Group
 - Resource Group Name: cms
 
-2. ### SQL Database
+### 2. SQL Database
 - DB name: cms
 - Server: cms95.database.windows.net
 - DB region: us-east
@@ -28,7 +28,7 @@ This page outlines all the settings and steps taken for this project.
 - Set everything else to default
 - #### Run SQL queries in sql_scripts/ directory after completion, starting from the users table. The screenshots of the users and posts table are in the images folder.
 
-3. ### Storage Account
+### 3. Storage Account
 - Resource group: cms
 - Storage account name: gallery95
 - Advanced - Allow enabling anonymous access on individual containers: Enable
@@ -41,7 +41,7 @@ This page outlines all the settings and steps taken for this project.
     - Blob storage key 2: 4BALqzjPQxK2Dz9gFMLbG69/Dwng16bSWKK4zFrzPIP0eHmHo5r3SOs8sxLC9Tf/5SwrttfSxKFJ+AStsT/KJg==
     - Blob connection string 2: DefaultEndpointsProtocol=https;AccountName=gallery95;AccountKey=4BALqzjPQxK2Dz9gFMLbG69/Dwng16bSWKK4zFrzPIP0eHmHo5r3SOs8sxLC9Tf/5SwrttfSxKFJ+AStsT/KJg==;EndpointSuffix=core.windows.net
 
-4. ### Microsoft Entra ID
+### 4. Microsoft Entra ID
 
 #### 4.1. App Registration
 - Name: cmsEntraID
