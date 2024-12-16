@@ -34,5 +34,5 @@ Choosing App Service
 #### List any other needs you must change to suit your application requirements.
 
 - VM: Requires more hands-on management for security, backups, monitoring, scaling, and maintenance. Offers full control over the environment, including OS, network settings, and storage.
-- App Services: Simplify many of these tasks with built-in features but may require adjustments to fit within the platform's constraints.
+- App Service: Simplify many of these tasks with built-in features but may require adjustments to fit within the platform's constraints.
 
