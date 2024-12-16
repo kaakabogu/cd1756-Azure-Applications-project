@@ -52,7 +52,7 @@ This page outlines all the settings and steps taken for this project.
 - Client Secret: 6up8Q~qYVjhDR25SVZ~BMsJ91q7qzjIErcwFSbqH
 - Application (client) ID: 55f613be-63e0-4262-9360-e40690a94db4
 
-5. ### Application
+### 5. Application
 I picked option 2: Web App for setting up the application. The application and the OAuth2 login featurewas set up successfully.
 
 #### 5.1. OPTION 1: Virtual Machine
@@ -156,7 +156,7 @@ After creation:
     - Source: GitHub
     - Pick the repo that contains the starter files.
 
-6. ### Setting up OAuth2
+### 6. Setting up OAuth2
 At this point, your application should already be running. You should already be able to log in with username admin and password pass and you can create new posts or update existing ones.
 
 The next part is getting the OAuth2 login to work.
